@@ -275,7 +275,7 @@ int main(void)
         //result = 3.3/65535.0/0.0032*((double) lpadcResultStruct.convValue)-1.06/0.0032+25.0; // temperature in degC
 
         ADCT1 = lpadcResultStruct.convValue;
-
+        PRINTF('ADCT: %d\n', ADCT1);
         Addr_Holder[ADCT1H] = ADCT1 >> 8 & 0xFF;
         Addr_Holder[ADCT1L] = ADCT1 & 0xFF;
 

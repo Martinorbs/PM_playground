@@ -1,6 +1,0 @@
-"Task Aware Debugger for GDB" version 11.6.0 (202206271353)
-(c) 2016-2022 NXP Semiconductors, Inc.
-==================================
-11:35:37.628 INFO: [ZephyrRTOS] C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\Debug\.config file could not be read
-11:35:37.628 INFO: [TadModel] DSF session ID 2 has started.
-11:35:45.319 INFO: [TadModel] DSF session ID 2 has ended.

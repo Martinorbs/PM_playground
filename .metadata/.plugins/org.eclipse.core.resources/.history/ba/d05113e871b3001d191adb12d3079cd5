@@ -29,7 +29,6 @@
 #define EXAMPLE_I2C_SLAVE_BASE    (I2C1_BASE)
 #define EXAMPLE_I2C_SLAVE ((I2C_Type *)EXAMPLE_I2C_SLAVE_BASE)
 #define I2C_DATA_LENGTH            (200) /* MAX is 256 */
-#define ADDR_LENGTH (13)
 #define DRIVER_MASTER_SPI Driver_SPI0
 #define DEMO_LPADC_BASE (ADC0)
 
@@ -51,9 +50,6 @@
 
 #define Trigger_PORT  BOARD_INITPINS_Trigger_PORT
 #define Trigger_PIN   BOARD_INITPINS_Trigger_PIN
-
-enum Addr{NOP, Addr, Frequency, Trigger, LEDR, LEDG, RGBr, RGBg, RGBb, ADCT1H, ADCT1L, ADCT2H, ADCT2L};
-enum Buffer{Address, ReceivedData, AddressReceived};
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -70,7 +66,6 @@ volatile uint32_t g_systickCounter;
 uint8_t g_slave_buff[I2C_DATA_LENGTH];
 i2c_slave_handle_t g_s_handle;
 volatile bool g_SlaveCompletionFlag = false;
-uint8_t Addr_Holder[ADDR_LENGTH];
 
 /*******************************************************************************
  * Code
@@ -115,7 +110,11 @@ void SPI_MasterSignalEvent_t(uint32_t event)
     }
     isTransferCompleted = true;
 }
-
+int i = 0;
+#define ADDR_LENGTH (13)
+uint8_t Addr_Holder[ADDR_LENGTH];
+enum Addr{NOP, Addr, Frequency, Trigger, LEDR, LEDG, RGBr, RGBg, RGBb, ADCT1H, ADCT1L, ADCT2H, ADCT2L};
+enum Buffer{Address, ReceivedData, AddressReceived};
 static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xfer, void *userData)
 {
 	PRINTF("Callback is called\n");
@@ -131,7 +130,7 @@ static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xf
         case kI2C_SlaveTransmitEvent:
             /*  Update information for transmit process */
             xfer->txData = &Addr_Holder[addr_reg];
-            if (addr_reg>=ADCT1H){
+            if (addr_reg>=ADCT1A){
             	PRINTF("txsize = 2\n");
             	xfer->txSize = 2;
             }
@@ -193,6 +192,8 @@ void Enable_DDS(void){
 
     /* turn off TRIGGER pin (start signal) */
     GPIO_PortClear(GPIO, Trigger_PORT, 1<<Trigger_PIN);
+
+    return 0;
 }
 
 /*!
