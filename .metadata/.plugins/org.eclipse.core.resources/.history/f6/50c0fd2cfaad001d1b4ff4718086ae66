@@ -1,0 +1,25 @@
+!SESSION 2023-02-16 14:00:12.725 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2023-02-16 14:00:36.667
+!MESSAGE Recreating part support. No part support available.
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-02-16 14:00:42.294
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Martijn Roubus'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2023-02-16 14:00:45.479
+!MESSAGE The device 'LPC55S69' (version='1.0.0') from SDK 'SDK_2.x_LPCXpresso55S69' (version='2.12.0', build='epluginsite611 2022-07-14') will be installed.
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2023-02-16 14:00:48.585
+!MESSAGE The device 'LPC55S28' (version='1.0.0') from SDK 'SDK_2.x_LPC5526' (version='2.12.0', build='epluginsite611 2022-07-14') will be installed.
+
+!ENTRY com.nxp.mcuxpresso.core.datamodels 1 0 2023-02-16 14:00:49.119
+!MESSAGE The device 'LPC5526' (version='1.0.0') from SDK 'SDK_2.x_LPC5526' (version='2.12.0', build='epluginsite611 2022-07-14') will be installed.

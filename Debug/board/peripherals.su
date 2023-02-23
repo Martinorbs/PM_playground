@@ -1,0 +1,5 @@
+../board/peripherals.c:119:10:SPI0_GetFreq	4	static
+../board/peripherals.c:124:7:SPI0_SignalEvent	16	static
+../board/peripherals.c:135:13:FLEXCOMM0_init	8	static
+../board/peripherals.c:145:6:BOARD_InitPeripherals	8	static
+../board/peripherals.c:154:6:BOARD_InitBootPeripherals	8	static

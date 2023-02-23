@@ -1,0 +1,3 @@
+C:\Users\Martijn Roubus\Downloads\LPC5526_PM\drivers/fsl_clock.h:983:20:CLOCK_EnableClock	24	static
+../board/pin_mux.c:35:6:BOARD_InitBootPins	8	static
+../board/pin_mux.c:67:6:BOARD_InitPins	8	static

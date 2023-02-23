@@ -1,0 +1,77 @@
+#include "fsl_debug_console.h"
+#include "peripherals.h"
+#include "board.h"
+
+/*******************************************************************************
+ * Definitions
+ ******************************************************************************/
+
+#define DEMO_ADC_BASE ADC0
+#define DEMO_ADC_CHANNEL_GROUP 0U
+#define DEMO_ADC_USER_CHANNEL 8U
+#define BUFFER_SIZE 16U
+
+/*******************************************************************************
+ * Prototypes
+ ******************************************************************************/
+
+/*******************************************************************************
+ * Variables
+ ******************************************************************************/
+
+adc_result_info_t adcResultInfoStruct;
+volatile bool g_AdcConvSeqAInterruptOccurredFlag;
+
+/*******************************************************************************
+ * Code
+ ******************************************************************************/
+
+/*!
+ * @brief Main function
+ */
+int main(void)
+{
+    uint32_t adcValue;
+    char buffer[BUFFER_SIZE];
+
+    /* Board pin, clock, debug console init */
+    BOARD_InitPins();
+    BOARD_BootClockFROHF96M();
+    BOARD_InitDebugConsole();
+
+    /* Configure ADC */
+    adc_config_t adcConfigStruct;
+    ADC_GetDefaultConfig(&adcConfigStruct);
+    ADC_Init(DEMO_ADC_BASE, &adcConfigStruct);
+    ADC_EnableHardwareTrigger(DEMO_ADC_BASE, false);
+
+    adc_channel_config_t adcChannelConfigStruct;
+    adcChannelConfigStruct.channelNumber = DEMO_ADC_USER_CHANNEL;
+    adcChannelConfigStruct.enableInterruptOnConversionCompleted = false;
+    adcChannelConfigStruct.enableDifferentialConversion = false;
+
+    ADC_SetChannelConfig(DEMO_ADC_BASE, DEMO_ADC_CHANNEL_GROUP, &adcChannelConfigStruct);
+
+    /* Print welcome message */
+    PRINTF("\r\nADC example\r\n");
+
+    /* Read ADC value and print it to the console */
+    while (1)
+    {
+        /* Start ADC conversion */
+        ADC_DoSoftwareTriggerConvSeqA(DEMO_ADC_BASE);
+
+        /* Wait for ADC conversion to complete */
+        while (!g_AdcConvSeqAInterruptOccurredFlag)
+        {
+        }
+        g_AdcConvSeqAInterruptOccurredFlag = false;
+
+        /* Get ADC value and print it to the console */
+        adcValue = adcResultInfoStruct.result;
+        snprintf(buffer, BUFFER_SIZE, "ADC value: %d\r\n", adcValue);
+        PRINTF(buffer);
+    }
+}
+
+

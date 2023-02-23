@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="completion_proposal_size">
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
+	</section>
+	<section name="PDOMSearchPage">
+		<item key="caseSensitive" value="false"/>
+		<item key="searchFlags" value="227191"/>
+		<list key="previousPatterns">
+			<item value="i2c_slave_transfer_t"/>
+			<item value="bootclock"/>
+			<item value="i2c_slave_config_t"/>
+			<item value="handle"/>
+			<item value="g_s_handle"/>
+			<item value="I2C"/>
+			<item value="CreateHandle"/>
+			<item value="SlaveTransferCreateHandle"/>
+			<item value="DRIVER_MASTER_SPI"/>
+			<item value="IRQ"/>
+			<item value="lpadc_reference_voltage_source_t"/>
+			<item value="kLPADC_ReferenceVoltageAlt2"/>
+			<item value="triggerb"/>
+			<item value="kPDRUNCFG_PD_LDOGPADC"/>
+			<item value="LDOGPADC"/>
+			<item value="fsl_power"/>
+			<item value="fsl_powerh"/>
+			<item value="POWER_DisablePD"/>
+			<item value="FIFOSel"/>
+			<item value="LPADC_Enable"/>
+			<item value="lpadc_conv_result_t"/>
+			<item value="LPADC_GetDefaultConfig"/>
+			<item value="_lpadc_status_flags"/>
+			<item value="BOARD_InitDebugConsole"/>
+			<item value="ADC0"/>
+			<item value="ADC"/>
+		</list>
+	</section>
+	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
+		<item key="size.width" value="384"/>
+		<item key="size.height" value="180"/>
+	</section>
+	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
+		<item key="DIALOG_X_ORIGIN" value="769"/>
+		<item key="DIALOG_Y_ORIGIN" value="236"/>
+		<item key="DIALOG_WIDTH" value="398"/>
+		<item key="DIALOG_HEIGHT" value="438"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

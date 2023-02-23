@@ -1,0 +1,6 @@
+"Task Aware Debugger for GDB" version 11.6.0 (202206271353)
+(c) 2016-2022 NXP Semiconductors, Inc.
+==================================
+10:35:58.470 INFO: [ZephyrRTOS] C:\Users\Martijn Roubus\Downloads\LPC5526_PM\test\Debug\.config file could not be read
+10:35:58.471 INFO: [TadModel] DSF session ID 51 has started.
+10:36:19.457 INFO: [TadModel] DSF session ID 51 has ended.
