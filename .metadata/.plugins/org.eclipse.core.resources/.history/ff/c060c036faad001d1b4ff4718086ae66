@@ -1,7 +1,0 @@
-#MCUXpresso IDE part support
-#Thu Feb 16 14:00:48 CET 2023
-sdk.id=SDK_2.x_LPC5526
-sdk.build=epluginsite611 2022-07-14
-device.version=1.0.0
-sdk.version=2.12.0
-device.id=LPC55S28

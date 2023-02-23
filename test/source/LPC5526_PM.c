@@ -28,7 +28,7 @@
  ******************************************************************************/
 #define EXAMPLE_I2C_SLAVE_BASE    (I2C1_BASE)
 #define EXAMPLE_I2C_SLAVE ((I2C_Type *)EXAMPLE_I2C_SLAVE_BASE)
-#define I2C_DATA_LENGTH            (200) /* MAX is 256 */
+#define I2C_DATA_LENGTH            (32) /* MAX is 256 */
 #define ADDR_LENGTH (13)
 #define DRIVER_MASTER_SPI Driver_SPI0
 #define DEMO_LPADC_BASE (ADC0)
@@ -116,9 +116,21 @@ void SPI_MasterSignalEvent_t(uint32_t event)
     isTransferCompleted = true;
 }
 
+/* FLEXCOMM0 signal event callback function */
+void SPI0_SignalEvent(uint32_t event) {
+  /* Data Transfer completed */
+  if (event & ARM_SPI_EVENT_TRANSFER_COMPLETE) {
+    /* Place your code here */
+  }
+  /* Data lost: Receive overflow / Transmit underflow */
+  if (event & ARM_SPI_EVENT_DATA_LOST) {
+    /* Place your code here */
+  }
+}
+
+
 static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xfer, void *userData)
 {
-	PRINTF("Callback is called\n");
 	int addr_reg = Addr_Holder[Addr];
     switch (xfer->event)
     {
@@ -132,13 +144,11 @@ static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xf
             /*  Update information for transmit process */
             xfer->txData = &Addr_Holder[addr_reg];
             if (addr_reg>=ADCT1H){
-            	PRINTF("txsize = 2\n");
             	xfer->txSize = 2;
             }
             else{
             	xfer->txSize = 1;
             }
-            PRINTF("sent data: %d\n", Addr_Holder[addr_reg]);
 
             break;
 
@@ -150,13 +160,14 @@ static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xf
             break;
 
         /* The master has sent a stop transition on the bus */
-        case kI2C_SlaveCompletionEvent:
+        case kI2C_SlaveDeselectedEvent:
             g_SlaveCompletionFlag = true;
             break;
 
         default:
             g_SlaveCompletionFlag = false;
             break;
+
     }
 }
 void Enable_DDS(void){
@@ -181,7 +192,8 @@ void Enable_DDS(void){
 
     /* Set DDS tuning word (TW) freq=DDS_TW × f_CLK/2^(24)
        0x003e:MSB, 0x003f:LSB
-       0xFFFF max, 0xFF00 max, (24 bit in total) 0x003F[7:0] are reserved */
+       0xFFFF max, 0xFF00 max, (24 bit in total) 0x003F[7:0] are reserved
+    */
     spi_write(0x003e, reg_3e);
     spi_write(0x003f, reg_3f);
 
@@ -237,7 +249,8 @@ int main(void)
     I2C_SlaveTransferCreateHandle(EXAMPLE_I2C_SLAVE, &g_s_handle, i2c_slave_callback, NULL);
     /* Start accepting I2C transfers on the I2C slave peripheral */
     reVal = I2C_SlaveTransferNonBlocking(EXAMPLE_I2C_SLAVE, &g_s_handle,
-                                         kI2C_SlaveAddressMatchEvent | kI2C_SlaveCompletionEvent);
+                                         kI2C_SlaveAddressMatchEvent | kI2C_SlaveCompletionEvent
+										 | kI2C_SlaveDeselectedEvent);
     if (reVal != kStatus_Success)
     {
         return -1;
@@ -259,56 +272,55 @@ int main(void)
     Enable_DDS();
 
     int ADCT1;
-    int IOrgbR = 0;
-    int IOrgbG = 0;
+    int curr_addr;
+    uint8_t Addr_Holder_Previous[ADDR_LENGTH];
     while(1){
 
-    	LPADC_ClearStatusFlags(DEMO_LPADC_BASE, 0U);
-
-        /* Start a new conversion */
+        /* Start a new ADC conversion */
         LPADC_DoSoftwareTrigger(DEMO_LPADC_BASE, 1U);
-
-        /* Get the result */
+        /* Get the ADC result */
         LPADC_GetConvResult(DEMO_LPADC_BASE, &lpadcResultStruct, 0U);
-        /* Print the result */
-        //PRINTF("LPADC result: %d from %d\r\n", lpadcResultStruct.convValue, lpadcResultStruct.commandIdSource);
-        //result = 3.3/65535.0/0.0032*((double) lpadcResultStruct.convValue)-1.06/0.0032+25.0; // temperature in degC
-
         ADCT1 = lpadcResultStruct.convValue;
-
+        /* Store result in Address handler
+           Converting this value to temperature can be done using the following formula:
+           T = 3.3/65535.0/0.0032 * ADCT - 1.06/0.0032 + 25
+        */
         Addr_Holder[ADCT1H] = ADCT1 >> 8 & 0xFF;
         Addr_Holder[ADCT1L] = ADCT1 & 0xFF;
 
         Addr_Holder[ADCT2H] = ADCT1 >> 8 & 0xFF;
         Addr_Holder[ADCT2L] = ADCT1 & 0xFF;
-
-        if(g_slave_buff[0])
+        //PRINTF("CompFlag = %d\n", g_SlaveCompletionFlag);
+        /* I2C Logic */
+        if (g_SlaveCompletionFlag && (g_slave_buff[0] || g_slave_buff[1]))
         {
-			PRINTF("146=%d\n", g_slave_buff[0]);
-			Addr_Holder[1] = g_slave_buff[0];
-			PRINTF("148=%d\n", Addr_Holder[1]);
-	//			if (g_slave_buff[ReceivedData] & 0x1 && Addr_Holder[Addr]!=NOP && Addr_Holder[Addr]!=Addr){
-	//				Addr_Holder[Addr_Holder[Addr]] = g_slave_buff[ReceivedData]&0xFE;
-	//			}
+        	Addr_Holder[Addr] = g_slave_buff[Address];
+        	curr_addr = Addr_Holder[Addr];
+        	if (g_slave_buff[ReceivedData] & 0x1 && curr_addr!=NOP && curr_addr!=Addr)
+        	{
+        		Addr_Holder[curr_addr] = g_slave_buff[ReceivedData]>>1&0xFF;
+        	}
 			memset(g_slave_buff, 0, I2C_DATA_LENGTH);
+			g_SlaveCompletionFlag = false;
         }
 
 
 
 
-        if (g_slave_buff[4] != IOrgbR && g_slave_buff[4]==1){
-        	GPIO_PortSet(GPIO, LPC_ST_1_PORT, 1<<LPC_ST_1_PIN);
-        	IOrgbR = 1;
-        }else if (g_slave_buff[4] != IOrgbR && g_slave_buff[4]==0){
-        	GPIO_PortClear(GPIO, LPC_ST_1_PORT, 1<<LPC_ST_1_PIN);
-        	IOrgbR = 0;
-        }
-        if (g_slave_buff[5] != IOrgbG && g_slave_buff[5]==1){
-        	GPIO_PortSet(GPIO, LPC_ST_2_PORT, 1<<LPC_ST_2_PIN);
-        	IOrgbR = 1;
-        }else if (g_slave_buff[5] != IOrgbR && g_slave_buff[5]==0){
-        	GPIO_PortClear(GPIO, LPC_ST_2_PORT, 1<<LPC_ST_2_PIN);
-        	IOrgbR = 0;
+//        if (g_slave_buff[4] != IOrgbR && g_slave_buff[4]==1){
+//        	GPIO_PortSet(GPIO, LPC_ST_1_PORT, 1<<LPC_ST_1_PIN);
+//        	IOrgbR = 1;
+//        }else if (g_slave_buff[4] != IOrgbR && g_slave_buff[4]==0){
+//        	GPIO_PortClear(GPIO, LPC_ST_1_PORT, 1<<LPC_ST_1_PIN);
+//        	IOrgbR = 0;
+//        }
+//        if (g_slave_buff[5] != IOrgbG && g_slave_buff[5]==1){
+//        	GPIO_PortSet(GPIO, LPC_ST_2_PORT, 1<<LPC_ST_2_PIN);
+//        	IOrgbR = 1;
+//        }else if (g_slave_buff[5] != IOrgbR && g_slave_buff[5]==0){
+//        	GPIO_PortClear(GPIO, LPC_ST_2_PORT, 1<<LPC_ST_2_PIN);
+//        	IOrgbR = 0;
+//        }
         }
 
     }

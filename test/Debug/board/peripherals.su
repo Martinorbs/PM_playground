@@ -2,9 +2,8 @@ C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS/core_cm33.
 C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers/fsl_common_arm.h:499:24:EnableIRQ	24	static
 C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers/fsl_i2c.h:610:20:I2C_EnableInterrupts	16	static
 ../board/peripherals.c:120:10:SPI0_GetFreq	4	static
-../board/peripherals.c:125:6:SPI0_SignalEvent	16	static
-../board/peripherals.c:137:13:FLEXCOMM0_init	8	static
-../board/peripherals.c:254:13:ADC0_init	8	static
-../board/peripherals.c:337:13:FLEXCOMM1_init	8	static
-../board/peripherals.c:349:6:BOARD_InitPeripherals	8	static
-../board/peripherals.c:360:6:BOARD_InitBootPeripherals	8	static
+../board/peripherals.c:124:13:FLEXCOMM0_init	8	static
+../board/peripherals.c:241:13:ADC0_init	8	static
+../board/peripherals.c:324:13:FLEXCOMM1_init	8	static
+../board/peripherals.c:336:6:BOARD_InitPeripherals	8	static
+../board/peripherals.c:347:6:BOARD_InitBootPeripherals	8	static

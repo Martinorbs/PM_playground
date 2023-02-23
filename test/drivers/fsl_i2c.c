@@ -10,6 +10,7 @@
 #include "fsl_flexcomm.h"
 #include <stdlib.h>
 #include <string.h>
+#include "fsl_debug_console.h"
 
 /*******************************************************************************
  * Definitions
@@ -1972,8 +1973,10 @@ void I2C_SlaveTransferHandleIRQ(I2C_Type *base, i2c_slave_handle_t *handle)
 
     if ((i2cStatus & I2C_STAT_SLVDESEL_MASK) != 0U)
     {
+
         I2C_SlaveInvokeEvent(base, handle, kI2C_SlaveDeselectedEvent);
         I2C_SlaveClearStatusFlags(base, I2C_STAT_SLVDESEL_MASK);
+
     }
 
     /* SLVPENDING flag is cleared by writing I2C_SLVCTL_SLVCONTINUE_MASK to SLVCTL register */

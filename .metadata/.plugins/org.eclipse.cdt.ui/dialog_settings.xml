@@ -8,6 +8,8 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="i"/>
+			<item value="isTransferCompleted"/>
 			<item value="i2c_slave_transfer_t"/>
 			<item value="bootclock"/>
 			<item value="i2c_slave_config_t"/>
@@ -37,7 +39,7 @@
 		</list>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
-		<item key="size.width" value="384"/>
+		<item key="size.width" value="512"/>
 		<item key="size.height" value="180"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">

@@ -548,11 +548,14 @@
                      </config_set>
                   </instance>
                   <instance name="FLEXCOMM1" uuid="3359bf95-ecc8-4b5c-aaf3-2f553eac4d08" type="flexcomm_i2c" type_id="flexcomm_i2c_c8597948f61bd571ab263ea4330b9dd6" mode="I2C_Interrupt" peripheral="FLEXCOMM1" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
-                     <config_set name="interrupt" quick_selection="QS_IRQ_priority1">
+                     <config_set name="interrupt">
                         <set name="interrupt_sources">
                            <selected>
                               <id>kI2C_SlavePendingInterruptEnable</id>
                               <id>kI2C_SlaveDeselectedInterruptEnable</id>
+                              <id>kI2C_MonitorReadyInterruptEnable</id>
+                              <id>kI2C_MonitorOverflowInterruptEnable</id>
+                              <id>kI2C_MonitorIdleInterruptEnable</id>
                            </selected>
                         </set>
                         <setting name="enable_irq" value="true"/>
