@@ -70,7 +70,8 @@ volatile uint32_t g_systickCounter;
 uint8_t g_slave_buff[I2C_DATA_LENGTH];
 i2c_slave_handle_t g_s_handle;
 volatile bool g_SlaveCompletionFlag = false;
-uint8_t Addr_Holder[ADDR_LENGTH];
+uint8_t Addr_Holder[ADDR_LENGTH] = {0};
+uint8_t Addr_Holder_Previous[ADDR_LENGTH] = {0};
 
 /*******************************************************************************
  * Code
@@ -170,11 +171,7 @@ static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xf
 
     }
 }
-void Enable_DDS(void){
-
-    /* set default DDS output frequency */
-    double f;
-    f = 5;		//MHz
+void Enable_DDS(int f){
 
     /* Calculate tuning word (tw) from frequency input */
     int tw = (int) (f*1.15/180*16777216);
@@ -269,11 +266,10 @@ int main(void)
     LPADC_GetDefaultConfig(&lpadcConfigStruct);
 
     /* Turn on DDS */
-    Enable_DDS();
+    Enable_DDS(5);
 
     int ADCT1;
     int curr_addr;
-    uint8_t Addr_Holder_Previous[ADDR_LENGTH];
     while(1){
 
         /* Start a new ADC conversion */
@@ -304,6 +300,98 @@ int main(void)
 			g_SlaveCompletionFlag = false;
         }
 
+        if (memcmp(&Addr_Holder[Frequency], &Addr_Holder_Previous[Frequency], 7) != 0)
+        {
+                // loop through the Addr_Holder array and perform specific actions for each value that has changed
+                for (int i = Frequency; i <= RGBb; i++) {
+                    if (Addr_Holder[i] != Addr_Holder_Previous[i]) {
+                        switch (i) {
+                            case Frequency:
+                                // perform specific actions for Frequency register change
+                                // ...
+                            	Enable_DDS(Addr_Holder[i]);
+                                break;
+                            case Trigger:
+                                // perform specific actions for Trigger register change
+                                // ...
+                            	if (Addr_Holder[i])
+                            	{
+                            		GPIO_PortClear(GPIO, Trigger_PORT, 1<<Trigger_PIN);
+                            	}
+                            	else{
+                            		GPIO_PortSet(GPIO, Trigger_PORT, 1<<Trigger_PIN);
+                            	}
+                                break;
+                            case LEDR:
+                                // perform specific actions for LEDR register change
+                                // ...
+                            	PRINTF("%d\n", i);
+                            	if (!Addr_Holder[i])
+                            	{
+                            		GPIO_PortClear(GPIO, LPC_ST_2_PORT, 1<<LPC_ST_2_PIN);
+                            	}
+                            	else{
+                            		GPIO_PortSet(GPIO, LPC_ST_2_PORT, 1<<LPC_ST_2_PIN);
+                            	}
+                                break;
+                            case LEDG:
+                                // perform specific actions for LEDG register change
+                                // ...
+                            	PRINTF("%d\n", i);
+                            	if (!Addr_Holder[i])
+                            	{
+                            		GPIO_PortClear(GPIO, LPC_ST_1_PORT, 1<<LPC_ST_1_PIN);
+                            	}
+                            	else{
+                            		GPIO_PortSet(GPIO, LPC_ST_1_PORT, 1<<LPC_ST_1_PIN);
+                            	}
+                                break;
+                            case RGBr:
+                                // perform specific actions for RGBr register change
+                                // ...
+                            	PRINTF("%d\n", i);
+                            	if (!Addr_Holder[i])
+                            	{
+                            		GPIO_PortClear(GPIO, LPC_LED_R_PORT, 1<<LPC_LED_R_PIN);
+                            	}
+                            	else{
+                            		GPIO_PortSet(GPIO, LPC_LED_R_PORT, 1<<LPC_LED_R_PIN);
+                            	}
+                                break;
+                            case RGBg:
+                                // perform specific actions for RGBg register change
+                                // ...
+                            	PRINTF("%d\n", i);
+                            	if (!Addr_Holder[i])
+                            	{
+                            		GPIO_PortClear(GPIO, LPC_LED_G_PORT, 1<<LPC_LED_G_PIN);
+                            	}
+                            	else{
+                            		GPIO_PortSet(GPIO, LPC_LED_G_PORT, 1<<LPC_LED_G_PIN);
+                            	}
+                                break;
+                            case RGBb:
+                                // perform specific actions for RGBb register change
+                                // ...
+                            	PRINTF("%d\n", i);
+                            	if (!Addr_Holder[i])
+                            	{
+                            		GPIO_PortClear(GPIO, LPC_LED_B_PORT, 1<<LPC_LED_B_PIN);
+                            	}
+                            	else{
+                            		GPIO_PortSet(GPIO, LPC_LED_B_PORT, 1<<LPC_LED_B_PIN);
+                            	}
+                                break;
+                            default:
+                                // handle NOP, Addr, ADCT1H, ADCT1L, ADCT2H, ADCT2L cases
+                            	PRINTF("DEFAULT:\n");
+                                break;
+                        }
+                    }
+                }
+                memcpy(Addr_Holder_Previous, Addr_Holder, ADDR_LENGTH);
+        	}
+
 
 
 
@@ -321,7 +409,5 @@ int main(void)
 //        	GPIO_PortClear(GPIO, LPC_ST_2_PORT, 1<<LPC_ST_2_PIN);
 //        	IOrgbR = 0;
 //        }
-        }
-
     }
 }

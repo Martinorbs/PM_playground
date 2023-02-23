@@ -5999,3 +5999,188 @@ java.lang.Exception: Invalid thread id: 1
 
 !ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 16:54:32.476
 !MESSAGE Telnet session connected on port 3330->56313 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:31:45.690
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:31:46.208
+!MESSAGE RedlinkServer telnet session connected on port 3025->53378 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:31:47.647
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53379, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:31:50.192
+!MESSAGE Telnet session connected on port 3330->53382 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:32:49.073
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:32:49.587
+!MESSAGE RedlinkServer telnet session connected on port 3025->53386 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:32:50.978
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53387, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:32:53.572
+!MESSAGE Telnet session connected on port 3330->53390 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 10004 2023-02-23 17:38:09.487
+!MESSAGE Failed to execute MI command:
+-data-list-register-values x 25
+Error message from debugger back end:
+Invalid thread id: 1
+!STACK 0
+java.lang.Exception: Invalid thread id: 1
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:38:15.448
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:38:15.961
+!MESSAGE RedlinkServer telnet session connected on port 3025->53407 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:38:17.398
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53408, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:38:19.929
+!MESSAGE Telnet session connected on port 3330->53411 @ 127.0.0.1
+
+!ENTRY com.crt.log 4 -1 2023-02-23 17:41:14.881
+!MESSAGE Exception
+!STACK 0
+java.lang.Exception: java.lang.NullPointerException
+	at com.crt.utils.general.Reporter.log(Reporter.java:591)
+	at com.nxp.mcuxpresso.datamodels.generic.ui.MulticoreProjectDecorator.decorate(MulticoreProjectDecorator.java:88)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:250)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:105)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:360)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:346)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:412)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:388)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.NullPointerException
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.performValueHandlerEvent(ManagedBuildManager.java:3183)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.performValueHandlerEvent(ManagedBuildManager.java:3139)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.copyCfg(ConfigurationDataProvider.java:303)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.createConfiguration(ConfigurationDataProvider.java:278)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.createData(CProjectDescriptionManager.java:1177)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescription.doWritable(CConfigurationDescription.java:188)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.updateChild(CProjectDescription.java:509)
+	at org.eclipse.cdt.internal.core.settings.model.CDataProxy.checkUpdate(CDataProxy.java:124)
+	at org.eclipse.cdt.internal.core.settings.model.CDataProxy.getData(CDataProxy.java:75)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescription.getConfigurationData(CConfigurationDescription.java:230)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescription.getConfigurationData(CConfigurationDescription.java:439)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getConfigurationForDescription(ManagedBuildManager.java:3640)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getConfigurationForDescription(ManagedBuildManager.java:3626)
+	at com.crt.utils.general.BuildUtils.getBuildConfigurations(BuildUtils.java:351)
+	at com.crt.utils.general.BuildUtils.getBuildConfiguration(BuildUtils.java:469)
+	at com.nxp.mcuxpresso.datamodels.generic.ui.MulticoreProjectDecorator.decorate(MulticoreProjectDecorator.java:69)
+	... 8 more
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:41:19.927
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:41:20.435
+!MESSAGE RedlinkServer telnet session connected on port 3025->53418 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:41:21.803
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53419, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:41:24.337
+!MESSAGE Telnet session connected on port 3330->53422 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:45:32.750
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:45:33.265
+!MESSAGE RedlinkServer telnet session connected on port 3025->53432 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:45:39.385
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53433, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:45:41.925
+!MESSAGE Telnet session connected on port 3330->53436 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 10004 2023-02-23 17:47:25.322
+!MESSAGE Failed to execute MI command:
+-data-list-register-values x 25
+Error message from debugger back end:
+Invalid thread id: 1
+!STACK 0
+java.lang.Exception: Invalid thread id: 1
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:47:58.242
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:47:58.749
+!MESSAGE RedlinkServer telnet session connected on port 3025->53447 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:48:04.684
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53448, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:48:07.217
+!MESSAGE Telnet session connected on port 3330->53451 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:51:16.012
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:51:16.526
+!MESSAGE RedlinkServer telnet session connected on port 3025->53461 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:51:17.966
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53462, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:51:20.503
+!MESSAGE Telnet session connected on port 3330->53465 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:59:51.322
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 17:59:51.830
+!MESSAGE RedlinkServer telnet session connected on port 3025->53483 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 17:59:53.228
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53484, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 17:59:55.811
+!MESSAGE Telnet session connected on port 3330->53487 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 18:03:11.279
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 18:03:11.789
+!MESSAGE RedlinkServer telnet session connected on port 3025->53495 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 18:03:13.180
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53496, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 18:03:15.721
+!MESSAGE Telnet session connected on port 3330->53499 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 18:10:30.449
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 18:10:30.965
+!MESSAGE RedlinkServer telnet session connected on port 3025->53509 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 18:10:32.391
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53510, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 18:10:34.977
+!MESSAGE Telnet session connected on port 3330->53513 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 18:21:18.286
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 18:21:18.798
+!MESSAGE RedlinkServer telnet session connected on port 3025->53533 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 18:21:20.183
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=53534, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 18:21:22.798
+!MESSAGE Telnet session connected on port 3330->53537 @ 127.0.0.1

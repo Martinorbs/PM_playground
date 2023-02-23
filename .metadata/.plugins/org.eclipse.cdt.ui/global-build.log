@@ -7987,3 +7987,407 @@ arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "
    text	   data	    bss	    dec	    hex	filename
   28044	    328	   8828	  37200	   9150	test.axf
  
+17:31:40 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+../source/LPC5526_PM.c: In function 'main':
+../source/LPC5526_PM.c:307:31: warning: passing argument 1 of 'memcmp' makes pointer from integer without a cast [-Wint-conversion]
+  307 |         if (memcmp(Addr_Holder[Frequency], Addr_Holder_Previous[Frequency], RGBb-Frequency+1 == 0)) {
+      |                    ~~~~~~~~~~~^~~~~~~~~~~
+      |                               |
+      |                               uint8_t {aka unsigned char}
+In file included from ../source/LPC5526_PM.c:10:
+c:\nxp\mcuxpressoide_11.6.0_8187\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.6.0.202112161359\tools\redlib\include\string.h:45:31: note: expected 'const void *' but argument is of type 'uint8_t' {aka 'unsigned char'}
+   45 | extern int memcmp(const void *__s1, const void *__s2, size_t __n);
+      |                   ~~~~~~~~~~~~^~~~
+../source/LPC5526_PM.c:307:64: warning: passing argument 2 of 'memcmp' makes pointer from integer without a cast [-Wint-conversion]
+  307 |         if (memcmp(Addr_Holder[Frequency], Addr_Holder_Previous[Frequency], RGBb-Frequency+1 == 0)) {
+      |                                            ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+      |                                                                |
+      |                                                                uint8_t {aka unsigned char}
+In file included from ../source/LPC5526_PM.c:10:
+c:\nxp\mcuxpressoide_11.6.0_8187\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.6.0.202112161359\tools\redlib\include\string.h:45:49: note: expected 'const void *' but argument is of type 'uint8_t' {aka 'unsigned char'}
+   45 | extern int memcmp(const void *__s1, const void *__s2, size_t __n);
+      |                                     ~~~~~~~~~~~~^~~~
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28716 B       256 KB     10.95%
+            SRAM:        9156 B        96 KB      9.31%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8828	  37544	   92a8	test.axf
+ 
+17:32:44 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+../source/LPC5526_PM.c: In function 'main':
+../source/LPC5526_PM.c:307:31: warning: passing argument 1 of 'memcmp' makes pointer from integer without a cast [-Wint-conversion]
+  307 |         if (memcmp(Addr_Holder[Frequency], Addr_Holder_Previous[Frequency], RGBb-Frequency+1) == 0) {
+      |                    ~~~~~~~~~~~^~~~~~~~~~~
+      |                               |
+      |                               uint8_t {aka unsigned char}
+In file included from ../source/LPC5526_PM.c:10:
+c:\nxp\mcuxpressoide_11.6.0_8187\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.6.0.202112161359\tools\redlib\include\string.h:45:31: note: expected 'const void *' but argument is of type 'uint8_t' {aka 'unsigned char'}
+   45 | extern int memcmp(const void *__s1, const void *__s2, size_t __n);
+      |                   ~~~~~~~~~~~~^~~~
+../source/LPC5526_PM.c:307:64: warning: passing argument 2 of 'memcmp' makes pointer from integer without a cast [-Wint-conversion]
+  307 |         if (memcmp(Addr_Holder[Frequency], Addr_Holder_Previous[Frequency], RGBb-Frequency+1) == 0) {
+      |                                            ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+      |                                                                |
+      |                                                                uint8_t {aka unsigned char}
+In file included from ../source/LPC5526_PM.c:10:
+c:\nxp\mcuxpressoide_11.6.0_8187\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.6.0.202112161359\tools\redlib\include\string.h:45:49: note: expected 'const void *' but argument is of type 'uint8_t' {aka 'unsigned char'}
+   45 | extern int memcmp(const void *__s1, const void *__s2, size_t __n);
+      |                                     ~~~~~~~~~~~~^~~~
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28716 B       256 KB     10.95%
+            SRAM:        9156 B        96 KB      9.31%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8828	  37544	   92a8	test.axf
+ 
+17:34:50 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+../source/LPC5526_PM.c: In function 'main':
+../source/LPC5526_PM.c:306:35: warning: passing argument 1 of 'memcmp' makes pointer from integer without a cast [-Wint-conversion]
+  306 |         int n = memcmp(Addr_Holder[Frequency], Addr_Holder_Previous[Frequency], RGBb-Frequency+1);
+      |                        ~~~~~~~~~~~^~~~~~~~~~~
+      |                                   |
+      |                                   uint8_t {aka unsigned char}
+In file included from ../source/LPC5526_PM.c:10:
+c:\nxp\mcuxpressoide_11.6.0_8187\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.6.0.202112161359\tools\redlib\include\string.h:45:31: note: expected 'const void *' but argument is of type 'uint8_t' {aka 'unsigned char'}
+   45 | extern int memcmp(const void *__s1, const void *__s2, size_t __n);
+      |                   ~~~~~~~~~~~~^~~~
+../source/LPC5526_PM.c:306:68: warning: passing argument 2 of 'memcmp' makes pointer from integer without a cast [-Wint-conversion]
+  306 |         int n = memcmp(Addr_Holder[Frequency], Addr_Holder_Previous[Frequency], RGBb-Frequency+1);
+      |                                                ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+      |                                                                    |
+      |                                                                    uint8_t {aka unsigned char}
+In file included from ../source/LPC5526_PM.c:10:
+c:\nxp\mcuxpressoide_11.6.0_8187\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.6.0.202112161359\tools\redlib\include\string.h:45:49: note: expected 'const void *' but argument is of type 'uint8_t' {aka 'unsigned char'}
+   45 | extern int memcmp(const void *__s1, const void *__s2, size_t __n);
+      |                                     ~~~~~~~~~~~~^~~~
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28716 B       256 KB     10.95%
+            SRAM:        9156 B        96 KB      9.31%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8828	  37544	   92a8	test.axf
+ 
+17:37:01 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+../source/LPC5526_PM.c: In function 'main':
+../source/LPC5526_PM.c:277:26: error: assignment to expression with array type
+  277 |     Addr_Holder_Previous = Addr_Holder;
+      |                          ^
+make[1]: *** [source/subdir.mk:26: source/LPC5526_PM.o] Error 1
+make: *** [makefile:45: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:37:47 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+../source/LPC5526_PM.c: In function 'main':
+../source/LPC5526_PM.c:306:50: error: 'Addr_Holder_Previous' undeclared (first use in this function)
+  306 |         int n = memcmp(&Addr_Holder[Frequency], &Addr_Holder_Previous[Frequency], RGBb-Frequency+1);
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+../source/LPC5526_PM.c:306:50: note: each undeclared identifier is reported only once for each function it appears in
+make[1]: *** [source/subdir.mk:26: source/LPC5526_PM.o] Error 1
+make: *** [makefile:45: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:38:01 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28732 B       256 KB     10.96%
+            SRAM:        9156 B        96 KB      9.31%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28404	    328	   8828	  37560	   92b8	test.axf
+ 
+17:38:12 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28404	    328	   8828	  37560	   92b8	test.axf
+ 
+17:41:15 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28716 B       256 KB     10.95%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8844	  37560	   92b8	test.axf
+ 
+17:44:39 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+../source/LPC5526_PM.c:378:1: error: expected identifier or '(' before '}' token
+  378 | }
+      | ^
+make[1]: *** [source/subdir.mk:26: source/LPC5526_PM.o] Error 1
+make: *** [makefile:45: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:45:19 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28716 B       256 KB     10.95%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8844	  37560	   92b8	test.axf
+ 
+17:45:35 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8844	  37560	   92b8	test.axf
+ 
+17:47:28 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+../source/LPC5526_PM.c: In function 'main':
+../source/LPC5526_PM.c:307:9: error: expected ',' or ';' before 'if'
+  307 |         if (!n)
+      |         ^~
+../source/LPC5526_PM.c:306:13: warning: unused variable 'n' [-Wunused-variable]
+  306 |         int n = memcmp(&Addr_Holder[Frequency], &Addr_Holder_Previous[Frequency], 5)
+      |             ^
+make[1]: *** [source/subdir.mk:26: source/LPC5526_PM.o] Error 1
+make: *** [makefile:45: all] Error 2
+"make -r -j4 all" terminated with exit code 2. Build might be incomplete.
+17:47:45 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28716 B       256 KB     10.95%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8844	  37560	   92b8	test.axf
+ 
+17:48:00 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8844	  37560	   92b8	test.axf
+ 
+17:51:11 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28716 B       256 KB     10.95%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28388	    328	   8844	  37560	   92b8	test.axf
+ 
+17:59:46 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28800 B       256 KB     10.99%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28472	    328	   8844	  37644	   930c	test.axf
+ 
+18:03:05 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       28816 B       256 KB     10.99%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28488	    328	   8844	  37660	   931c	test.axf
+ 
+18:10:18 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       29044 B       256 KB     11.08%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28716	    328	   8844	  37888	   9400	test.axf
+ 
+18:10:27 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28716	    328	   8844	  37888	   9400	test.axf
+ 
+18:21:13 **** Incremental Build of configuration Debug for project test ****
+make -r -j4 all 
+Building file: ../source/LPC5526_PM.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
+Finished building: ../source/LPC5526_PM.c
+ 
+Building target: test.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       29044 B       256 KB     11.08%
+            SRAM:        9172 B        96 KB      9.33%
+           SRAMX:          0 GB        32 KB      0.00%
+         USB_RAM:          0 GB        16 KB      0.00%
+Finished building target: test.axf
+ 
+Performing post-build steps
+arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
+   text	   data	    bss	    dec	    hex	filename
+  28716	    328	   8844	  37888	   9400	test.axf
+ 

@@ -1,20 +1,16 @@
-16:54:23 **** Incremental Build of configuration Debug for project test ****
+18:21:13 **** Incremental Build of configuration Debug for project test ****
 make -r -j4 all 
 Building file: ../source/LPC5526_PM.c
 Invoking: MCU C Compiler
 arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC5526JBD64 -DCPU_LPC5526JBD64_cm33 -DSDK_OS_BAREMETAL -DSERIAL_PORT_TYPE_UART=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_DEBUGCONSOLE=0 -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\board" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\source" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\drivers" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS_driver" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\device" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\CMSIS" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\utilities" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\serial_manager" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\uart" -I"C:\Users\Martijn Roubus\Documents\github_rep\PM_playground\test\component\lists" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC5526_PM.d" -MT"source/LPC5526_PM.o" -MT"source/LPC5526_PM.d" -o "source/LPC5526_PM.o" "../source/LPC5526_PM.c"
-../source/LPC5526_PM.c: In function 'main':
-../source/LPC5526_PM.c:276:13: warning: unused variable 'Addr_Holder_Previous' [-Wunused-variable]
-  276 |     uint8_t Addr_Holder_Previous[ADDR_LENGTH];
-      |             ^~~~~~~~~~~~~~~~~~~~
 Finished building: ../source/LPC5526_PM.c
  
 Building target: test.axf
 Invoking: MCU Linker
 arm-none-eabi-gcc -nostdlib -Xlinker -Map="test.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m33 -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -T LPC5526_PM_Debug.ld -o "test.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc5526.o  ./source/LPC5526_PM.o ./source/ad9102.o ./source/semihost_hardfault.o  ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_dma.o ./drivers/fsl_flexcomm.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_i2c_cmsis.o ./drivers/fsl_i2c_dma.o ./drivers/fsl_lpadc.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_spi_cmsis.o ./drivers/fsl_spi_dma.o ./drivers/fsl_usart.o  ./device/system_LPC5526.o  ./component/uart/fsl_adapter_usart.o  ./component/serial_manager/fsl_component_serial_manager.o ./component/serial_manager/fsl_component_serial_port_uart.o  ./component/lists/fsl_component_generic_list.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
 Memory region         Used Size  Region Size  %age Used
-   PROGRAM_FLASH:       28372 B       256 KB     10.82%
-            SRAM:        9156 B        96 KB      9.31%
+   PROGRAM_FLASH:       29044 B       256 KB     11.08%
+            SRAM:        9172 B        96 KB      9.33%
            SRAMX:          0 GB        32 KB      0.00%
          USB_RAM:          0 GB        16 KB      0.00%
 Finished building target: test.axf
@@ -22,8 +18,8 @@ Finished building target: test.axf
 Performing post-build steps
 arm-none-eabi-size "test.axf"; # arm-none-eabi-objcopy -v -O binary "test.axf" "test.bin" ; # checksum -p LPC5526 -d "test.bin";
    text	   data	    bss	    dec	    hex	filename
-  28044	    328	   8828	  37200	   9150	test.axf
+  28716	    328	   8844	  37888	   9400	test.axf
  
 
-16:54:24 Build Finished. 0 errors, 1 warnings. (took 1s.514ms)
+18:21:15 Build Finished. 0 errors, 0 warnings. (took 1s.622ms)
 
