@@ -4861,3 +4861,145 @@ java.lang.Exception: Invalid thread id: 1
 
 !ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 10:50:40.177
 !MESSAGE Telnet session connected on port 3330->57294 @ 127.0.0.1
+!SESSION 2023-02-23 11:03:05.163 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2023-02-23 11:04:39.454
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-02-23 11:05:15.936
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Martijn Roubus'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:23:39.419
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 11:23:39.935
+!MESSAGE RedlinkServer telnet session connected on port 3025->57710 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:23:48.720
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=57711, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 11:23:51.303
+!MESSAGE Telnet session connected on port 3330->57714 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf.ui 4 10001 2023-02-23 11:29:59.169
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-02-23 11:29:59.169
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf.ui 4 10001 2023-02-23 11:29:59.171
+!MESSAGE Connection is shut down
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-02-23 11:29:59.171
+!MESSAGE Connection is shut down
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:30:06.685
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 11:30:07.204
+!MESSAGE RedlinkServer telnet session connected on port 3025->57734 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:30:08.599
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=57735, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 11:30:11.147
+!MESSAGE Telnet session connected on port 3330->57738 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:35:36.390
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 11:35:36.902
+!MESSAGE RedlinkServer telnet session connected on port 3025->57747 @ 127.0.0.1
+
+!ENTRY org.eclipse.core.resources 4 2 2023-02-23 11:35:38.795
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.performValueHandlerEvent(ManagedBuildManager.java:3183)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.performValueHandlerEvent(ManagedBuildManager.java:3139)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.copyCfg(ConfigurationDataProvider.java:303)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.createConfiguration(ConfigurationDataProvider.java:278)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.createData(CProjectDescriptionManager.java:1177)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescription.doWritable(CConfigurationDescription.java:188)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.updateChild(CProjectDescription.java:509)
+	at org.eclipse.cdt.internal.core.settings.model.CDataProxy.checkUpdate(CDataProxy.java:124)
+	at org.eclipse.cdt.internal.core.settings.model.CDataProxy.getData(CDataProxy.java:75)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescription.getConfigurationData(CConfigurationDescription.java:230)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescription.getConfigurationData(CConfigurationDescription.java:439)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getConfigurationForDescription(ManagedBuildManager.java:3640)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getConfigurationForDescription(ManagedBuildManager.java:3626)
+	at com.crt.advproject.custom.optionhandlers.MergeConstantsCommandGenerator.generateCommand(MergeConstantsCommandGenerator.java:49)
+	at org.eclipse.cdt.managedbuilder.internal.core.Tool.getToolCommandFlags(Tool.java:2681)
+	at org.eclipse.cdt.managedbuilder.internal.core.Tool.getToolCommandFlags(Tool.java:2821)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu2.GnuMakefileGenerator.addRuleForSource(GnuMakefileGenerator.java:2748)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu2.GnuMakefileGenerator.addFragmentMakefileEntriesForSource(GnuMakefileGenerator.java:2216)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu2.GnuMakefileGenerator.addSources(GnuMakefileGenerator.java:2093)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu2.GnuMakefileGenerator.populateFragmentMakefile(GnuMakefileGenerator.java:1026)
+	at org.eclipse.cdt.managedbuilder.makegen.gnu2.GnuMakefileGenerator.generateMakefiles(GnuMakefileGenerator.java:746)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performMakefileGeneration(CommonBuilder.java:1013)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.performPrebuildGeneration(CommonBuilder.java:874)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:754)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:517)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.build(CommonBuilder.java:463)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:853)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:232)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:361)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:490)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:565)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:603)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:124)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2$1.run(AbstractCLaunchDelegate2.java:376)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2333)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.buildProject(AbstractCLaunchDelegate2.java:391)
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.buildForLaunch(AbstractCLaunchDelegate2.java:306)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:777)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-02-23 11:35:45.431
+!MESSAGE Request for monitor: 'NOTHING_BEING_DEBUGGED' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-02-23 11:35:45.432
+!MESSAGE Request for monitor: 'NOTHING_BEING_DEBUGGED' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-02-23 11:35:45.433
+!MESSAGE Request for monitor: 'NOTHING_BEING_DEBUGGED' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-02-23 11:35:45.434
+!MESSAGE Request for monitor: 'NOTHING_BEING_DEBUGGED' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-02-23 11:35:45.435
+!MESSAGE Request for monitor: 'NOTHING_BEING_DEBUGGED' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-02-23 11:35:45.435
+!MESSAGE Request for monitor: 'NOTHING_BEING_DEBUGGED' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:36:13.155
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=57749, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 11:36:15.696
+!MESSAGE Telnet session connected on port 3330->57752 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:39:46.345
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-02-23 11:39:46.850
+!MESSAGE RedlinkServer telnet session connected on port 3025->57759 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-02-23 11:39:52.786
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries//crt_emu_cm_redlink, --server, :10989, -msg-port=57760, -g, -mi, -2, -pLPC5526, -vendor=NXP, --bootromstall, 0x50000040, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/test/Debug, --flash-dir, C:/nxp/MCUXpressoIDE_11.6.0_8187/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.6.0.202207121507/binaries/Flash, --flash-dir, C:/Users/Martijn Roubus/Documents/github_rep/PM_playground/.mcuxpressoide_packages_support/LPC5526_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-02-23 11:39:55.340
+!MESSAGE Telnet session connected on port 3330->57763 @ 127.0.0.1

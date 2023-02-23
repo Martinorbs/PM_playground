@@ -28,7 +28,7 @@
  ******************************************************************************/
 #define EXAMPLE_I2C_SLAVE_BASE    (I2C1_BASE)
 #define EXAMPLE_I2C_SLAVE ((I2C_Type *)EXAMPLE_I2C_SLAVE_BASE)
-#define I2C_DATA_LENGTH            (2) /* MAX is 256 */
+#define I2C_DATA_LENGTH            (200) /* MAX is 256 */
 #define DRIVER_MASTER_SPI Driver_SPI0
 #define DEMO_LPADC_BASE (ADC0)
 
@@ -118,6 +118,7 @@ enum Buffer{Address, ReceivedData, AddressReceived};
 static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xfer, void *userData)
 {
 	PRINTF("Callback is called\n");
+	int addr_reg = Addr_Holder[Addr];
     switch (xfer->event)
     {
         /*  Address match event */
@@ -128,14 +129,15 @@ static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xf
         /*  Transmit request */
         case kI2C_SlaveTransmitEvent:
             /*  Update information for transmit process */
-            xfer->txData = &Addr_Holder[Addr];
-            if (Addr_Holder[Addr]>=ADCT1A){
+            xfer->txData = &Addr_Holder[addr_reg];
+            if (addr_reg>=ADCT1A){
+            	PRINTF("txsize = 2\n");
             	xfer->txSize = 2;
             }
             else{
             	xfer->txSize = 1;
             }
-            PRINTF("sent data: %d", Addr_Holder[Addr]);
+            PRINTF("sent data: %d\n", Addr_Holder[addr_reg]);
 
             break;
 
@@ -143,14 +145,7 @@ static void i2c_slave_callback(I2C_Type *base, volatile i2c_slave_transfer_t *xf
         case kI2C_SlaveReceiveEvent:
             /*  Update information for received process */
 			xfer->rxData = &g_slave_buff[0];
-			xfer->rxSize = 2;
-			PRINTF("146=%d\n", g_slave_buff[0]);
-			Addr_Holder[1] = g_slave_buff[0];
-			PRINTF("148=%d\n", Addr_Holder[1]);
-//			if (g_slave_buff[ReceivedData] & 0x1 && Addr_Holder[Addr]!=NOP && Addr_Holder[Addr]!=Addr){
-//				Addr_Holder[Addr_Holder[Addr]] = g_slave_buff[ReceivedData]&0xFE;
-//			}
-			memset(g_slave_buff, 0, I2C_DATA_LENGTH);
+			xfer->rxSize = I2C_DATA_LENGTH;
             break;
 
         /* The master has sent a stop transition on the bus */
@@ -195,7 +190,7 @@ int main(void)
     /* Set up i2c slave */
     I2C_SlaveGetDefaultConfig(&slaveConfig);
 
-    memset(g_slave_buff, 0, sizeof(g_slave_buff));
+    memset(g_slave_buff, 0, I2C_DATA_LENGTH);
 
     /* Create the I2C handle for the non-blocking transfer */
     I2C_SlaveTransferCreateHandle(EXAMPLE_I2C_SLAVE, &g_s_handle, i2c_slave_callback, NULL);
@@ -264,7 +259,7 @@ int main(void)
     spi_write(0x001d, 0x0001);
     wait_us(10);
     GPIO_PortClear(GPIO, Trigger_PORT, 1<<Trigger_PIN); /* turn off (start signal)*/
-    int temp = 16;
+
     int IOrgbR = 0;
     int IOrgbG = 0;
     while(1){
@@ -280,6 +275,17 @@ int main(void)
         //PRINTF("LPADC result: %d from %d\r\n", lpadcResultStruct.convValue, lpadcResultStruct.commandIdSource);
         //result = 3.3/65535.0/0.0032*((double) lpadcResultStruct.convValue)-1.06/0.0032+25.0; // temperature in degC
     	//set pin to 1
+        if(g_slave_buff[0])
+        {
+			PRINTF("146=%d\n", g_slave_buff[0]);
+			Addr_Holder[1] = g_slave_buff[0];
+			PRINTF("148=%d\n", Addr_Holder[1]);
+	//			if (g_slave_buff[ReceivedData] & 0x1 && Addr_Holder[Addr]!=NOP && Addr_Holder[Addr]!=Addr){
+	//				Addr_Holder[Addr_Holder[Addr]] = g_slave_buff[ReceivedData]&0xFE;
+	//			}
+			memset(g_slave_buff, 0, I2C_DATA_LENGTH);
+        }
+
         Addr_Holder[ADCT1A] = 16;
         Addr_Holder[ADCT1B] = 32;
 

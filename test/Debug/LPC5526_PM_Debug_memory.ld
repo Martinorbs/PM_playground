@@ -6,7 +6,7 @@
  * Generated linker script file for LPC5526
  * Created from memory.ldt by FMCreateLinkMemory
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on Feb 23, 2023, 10:50:30 AM
+ * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on Feb 23, 2023, 11:39:48 AM
  */
 
 MEMORY
