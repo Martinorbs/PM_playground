@@ -295,17 +295,17 @@ int main(void)
         /* I2C Logic */
         if (g_SlaveCompletionFlag && (g_slave_buff[0] || g_slave_buff[1]))
         {
-    		if (g_slave_buff[Address] < ADDR_LENGTH)
-    		{
-				Addr_Holder[Addr] = g_slave_buff[Address];
-				curr_addr = Addr_Holder[Addr];
-				if (g_slave_buff[ReceivedData] & 0x1 && curr_addr!=NOP && curr_addr!=Addr)
-				{
-					Addr_Holder[curr_addr] = g_slave_buff[ReceivedData]>>1&0xFF;
-				}
-    		}
-			memset(g_slave_buff, 0, I2C_DATA_LENGTH);
 			g_SlaveCompletionFlag = false;
+			memset(g_slave_buff, 0, I2C_DATA_LENGTH);
+    		}
+				}
+					Addr_Holder[curr_addr] = g_slave_buff[ReceivedData]>>1&0xFF;
+				{
+				if (g_slave_buff[ReceivedData] & 0x1 && curr_addr!=NOP && curr_addr!=Addr)
+				curr_addr = Addr_Holder[Addr];
+				Addr_Holder[Addr] = g_slave_buff[Address];
+    		{
+    		if (g_slave_buff[Address] < ADDR_LENGTH)
         }
 
         if (memcmp(&Addr_Holder[Frequency], &Addr_Holder_Previous[Frequency], 7) != 0)
