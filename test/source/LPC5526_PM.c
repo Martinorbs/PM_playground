@@ -237,7 +237,9 @@ int main(void)
     GPIO_PinInit(GPIO, LPC_ST_2_PORT, LPC_ST_2_PIN, &configOutput);
     GPIO_PinInit(GPIO, LPC_ST_1_PORT, LPC_ST_1_PIN, &configOutput);
     GPIO_PinInit(GPIO, Trigger_PORT, Trigger_PIN, &configOutput);
-
+    GPIO_PortSet(GPIO, LPC_LED_R_PORT, 1<<LPC_LED_R_PIN);
+    GPIO_PortSet(GPIO, LPC_LED_G_PORT, 1<<LPC_LED_G_PIN);
+    GPIO_PortSet(GPIO, LPC_LED_B_PORT, 1<<LPC_LED_B_PIN);
     /* Set up i2c slave */
     i2c_slave_config_t slaveConfig;
     status_t reVal = kStatus_Fail;
@@ -267,7 +269,10 @@ int main(void)
 
     /* Turn on DDS */
     Enable_DDS(5);
-
+    Addr_Holder_Previous[Frequency] = 5;
+	Addr_Holder_Previous[Frequency] = 5;
+    Addr_Holder_Previous[Trigger] = 1;
+	Addr_Holder_Previous[Trigger] = 1;
     int ADCT1;
     int curr_addr;
     while(1){
@@ -290,12 +295,15 @@ int main(void)
         /* I2C Logic */
         if (g_SlaveCompletionFlag && (g_slave_buff[0] || g_slave_buff[1]))
         {
-        	Addr_Holder[Addr] = g_slave_buff[Address];
-        	curr_addr = Addr_Holder[Addr];
-        	if (g_slave_buff[ReceivedData] & 0x1 && curr_addr!=NOP && curr_addr!=Addr)
-        	{
-        		Addr_Holder[curr_addr] = g_slave_buff[ReceivedData]>>1&0xFF;
-        	}
+    		if (g_slave_buff[Address] < ADDR_LENGTH)
+    		{
+				Addr_Holder[Addr] = g_slave_buff[Address];
+				curr_addr = Addr_Holder[Addr];
+				if (g_slave_buff[ReceivedData] & 0x1 && curr_addr!=NOP && curr_addr!=Addr)
+				{
+					Addr_Holder[curr_addr] = g_slave_buff[ReceivedData]>>1&0xFF;
+				}
+    		}
 			memset(g_slave_buff, 0, I2C_DATA_LENGTH);
 			g_SlaveCompletionFlag = false;
         }
@@ -350,7 +358,7 @@ int main(void)
                                 // perform specific actions for RGBr register change
                                 // ...
                             	PRINTF("%d\n", i);
-                            	if (!Addr_Holder[i])
+                            	if (Addr_Holder[i])
                             	{
                             		GPIO_PortClear(GPIO, LPC_LED_R_PORT, 1<<LPC_LED_R_PIN);
                             	}
@@ -362,7 +370,7 @@ int main(void)
                                 // perform specific actions for RGBg register change
                                 // ...
                             	PRINTF("%d\n", i);
-                            	if (!Addr_Holder[i])
+                            	if (Addr_Holder[i])
                             	{
                             		GPIO_PortClear(GPIO, LPC_LED_G_PORT, 1<<LPC_LED_G_PIN);
                             	}
@@ -374,7 +382,7 @@ int main(void)
                                 // perform specific actions for RGBb register change
                                 // ...
                             	PRINTF("%d\n", i);
-                            	if (!Addr_Holder[i])
+                            	if (Addr_Holder[i])
                             	{
                             		GPIO_PortClear(GPIO, LPC_LED_B_PORT, 1<<LPC_LED_B_PIN);
                             	}

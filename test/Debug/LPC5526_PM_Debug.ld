@@ -6,7 +6,7 @@
  * Generated linker script file for LPC5526
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on Feb 23, 2023, 6:21:13 PM
+ * MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13] on Feb 27, 2023, 11:50:34 AM
  */
 
 INCLUDE "LPC5526_PM_Debug_library.ld"

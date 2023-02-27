@@ -8,6 +8,13 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="Addr_Holder_Previous"/>
+			<item value="kI2C_SlaveAddressMatchEvent"/>
+			<item value="kI2C_SlaveDeselectedEvent"/>
+			<item value="SPI0_SignalEvent"/>
+			<item value="kI2C_SlaveCompletionEvent"/>
+			<item value="kI2C_SlaveReceiveEvent"/>
+			<item value="g_SlaveCompletionFlag"/>
 			<item value="i"/>
 			<item value="isTransferCompleted"/>
 			<item value="i2c_slave_transfer_t"/>
