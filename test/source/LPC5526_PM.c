@@ -194,6 +194,9 @@ void Enable_DDS(int f){
     spi_write(0x003e, reg_3e);
     spi_write(0x003f, reg_3f);
 
+    //gain
+    spi_write(0x0035, 0x2500);
+
     /* Update all SPI settings with a new configuration (self-clearing) */
     spi_write(0x001e, 0x0001);
 
@@ -239,7 +242,7 @@ int main(void)
     GPIO_PinInit(GPIO, Trigger_PORT, Trigger_PIN, &configOutput);
     GPIO_PortSet(GPIO, LPC_LED_R_PORT, 1<<LPC_LED_R_PIN);
     GPIO_PortSet(GPIO, LPC_LED_G_PORT, 1<<LPC_LED_G_PIN);
-    GPIO_PortSet(GPIO, LPC_LED_B_PORT, 1<<LPC_LED_B_PIN);
+    GPIO_PortClear(GPIO, LPC_LED_B_PORT, 1<<LPC_LED_B_PIN);
     /* Set up i2c slave */
     i2c_slave_config_t slaveConfig;
     status_t reVal = kStatus_Fail;
@@ -269,10 +272,12 @@ int main(void)
 
     /* Turn on DDS */
     Enable_DDS(5);
-    Addr_Holder_Previous[Frequency] = 5;
+    Addr_Holder[Frequency] = 5;
 	Addr_Holder_Previous[Frequency] = 5;
-    Addr_Holder_Previous[Trigger] = 1;
+    Addr_Holder[Trigger] = 1;
 	Addr_Holder_Previous[Trigger] = 1;
+    Addr_Holder[RGBb] = 1;
+	Addr_Holder_Previous[RGBb] = 1;
     int ADCT1;
     int curr_addr;
     while(1){
